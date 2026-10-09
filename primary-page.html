@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Poem Title</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <script src="main.js"></script>
+        <div class="row">
+            <div>
+                <h3>Title</h3>
+                <pre>
+This is my poem
+
+I am <span id="key0" class="hidden-buttons"></span>ing
+this functionality
+to see if these <span id="key1" class="hidden-buttons"></span>s
+will load properly
+
+Essentially
+I am doing a small <span id="key2" class="hidden-buttons"></span>
+                </pre>
+            </div>
+            <div class="column">
+                <div>
+                    <pre id="fake-input"></pre>
+                </div>
+                <button class="column" onclick="attemptSubmit()">Go</button>
+            </div>
+        </div>
+        <dialog id="dialog">
+            <button onclick="closeDialog()">X</button>
+            <pre id="dialog-poem"></pre>
+        </dialog>
+    </body>
+</html>
