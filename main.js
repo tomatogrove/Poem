@@ -1,11 +1,7 @@
 onload = () => main();
 
 
-let passMap = new Map([
-    ["Test", false],
-    ["Phrase", false],
-    ["Check", false]
-]);
+let passMap = new Map();
 let passCount = 0;
 
 const dialogList = ["One", "Two", "Three", "Four"];
@@ -14,9 +10,48 @@ let dialogPoem = "";
 let dialogElement;
 let inputElement;
 
+let poem = "";
 
-function main() {
-    // resetNavigation();
+
+async function main() {
+    // resetNavigation(); ---> How to redirect without auth
+    setUp();
+}
+
+function setUp() {
+    parsePoem();
+}
+
+function parsePoem() {
+    let result;
+    fetch("poems.txt").then((response) => {
+        return response.blob();
+    }).then((blob) => {
+        return blob.text();
+    }).then((text) => {
+        result = text;
+        let lines = result.split("\n");
+        let i = 0;
+
+        lines = lines.map((line) => {
+            while (line.includes("%")) {
+                passMap.set(line.match(/%([^%]*)%/)[1], false);
+
+                line = line.replace(/%([^%]*)%/, `<span id="key${i}" class="hidden-buttons">$1</span>`);
+                i++;
+            }
+            return line;
+        });
+        poem = lines.join("\n");
+        document.getElementById("poem").innerHTML = poem;
+
+        setUpEventListeners();
+        setUpElements();
+    });
+
+}
+
+function setUpEventListeners() {
     Array.from(passMap.keys()).forEach((key, index) => {
         let phraseElement = document.getElementById(`key${index}`);
         phraseElement.innerHTML = key;
@@ -26,6 +61,10 @@ function main() {
             phraseElement.style.backgroundColor = "aqua";
         });
     });
+}
+
+
+function setUpElements() {
     inputElement = document.getElementById("fake-input");
     dialogElement = document.getElementById("dialog");
 }
