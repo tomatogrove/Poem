@@ -42,6 +42,7 @@ function parsePoem() {
             }
             return line;
         });
+        console.log(lines.length)
         poem = lines.join("\n");
         document.getElementById("poem").innerHTML = poem;
 

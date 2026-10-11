@@ -9,36 +9,39 @@ like the toothpaste I %wipe off the% mirror
 And each day
 a %part of me% swirls down the drain
 
-Bundled under a ratty jacket -- you're killing me jacket,,, how do I rhyme you
+Bundled under a ratty coat 
 The air is crisp
 And the landscape's painted brown
-Yet, I watch the version of me %that is full of dreams%
-%It% shimmers in the morning light
-prancing over air streams
-dancing, glowing bright
-Far above
-the wisp
+Yet, the version of me %that's full of dreams%
+glitters in the morning light
+prancing over air streams	-------> fjdakfdjklafjdlaj
+dancing eyes, shimmering bright ---->>> ehhhh idk about this
+I can only guess it's singing ---> now this one popped up like wack a mole
+by the way %it% moves it's throat
+The wisp
 %beams%
 down 
 %at me%
-incomprehensible glee
-so full of untouchable love
+in incomprehensible glee
 
 I can't even hear 
 %it's comforting voice% anymore.
 The %lifted% truck behind %me%
 blares into my ears
 
-At my desk I remember
+Sinking into my desk I remember
 when I first found this language
-all the problems it could solve
+all the problems I thought it could fix
 How it %held my hand and%
-%together we% wrote "Hello World!"
+%together we% wrote <i>Hello World!</i>
 
-We don't speak much to each other these days
-There are different problems
-ones we %can%'t %solve% together
-ones it didn't teach me -- fix this
+I let it lead me around 
+giddy as we %solved% all of my temporary worries
+not noticing when it let go of my hand
+I was surrounded by iron walls
+And when I asked it for help
+it told me
+<i>Exception in thread "main" java.lang.NullPointerException</i>
 
 At home
 a silhouette follows me room to room
@@ -51,19 +54,18 @@ I can see it fidget
 shifting it's weight foot to foot
 It's impatient, I know
 But it's so hard to put
-all 
-		of
-	these
-		things
+	all 
+			of
+		these
+					things
 together
 
-the broken pieces are taped
+broken pieces are taped
 and glued
 and knotted into disarray
 Nothing's new and the 			
 				orange piece runs from the
 green
-
 
 The shadow hesitates in the doorway
 reaching in and reaching out
@@ -74,5 +76,3 @@ No one else can do it
 I have to get it working
 To get up again tomorrow
 and smear the toothpaste off the mirror
-
-
