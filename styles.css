@@ -16,12 +16,23 @@ html {
     background-color: white;
 }
 
+
+div {
+    /* padding: .5rem; */
+    margin-top: 1rem;
+}
+
 button {
     width: fit-content;
     display: block;
     align-self: center;
     font-size: large;
     font-family: sans-serif;
+}
+
+pre {
+    padding: .75rem;
+    overflow: hidden;
 }
 
 
@@ -43,7 +54,7 @@ button {
 
 .row {
     display: flex;
-    justify-content: center;
+    padding: 1rem 4rem;
     flex-direction: row;
 }
 
@@ -61,12 +72,21 @@ button {
     cursor: pointer;
 }
 
+.last-ones {
+    background-color: rgba(0, 255, 255, 0.459);
+}
+
 #fake-input {
     border: 1px solid black;
-    min-width: 5rem;
-    min-height: .5rem;
+    min-width: 10.5rem;
+    min-height: 1.25rem;
     padding: .25rem;
     border-radius: 5px;
+    margin: 1rem;
+}
+
+#poem {
+    display: flex;
 }
 
 

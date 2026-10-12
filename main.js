@@ -4,7 +4,7 @@ onload = () => main();
 let passMap = new Map();
 let passCount = 0;
 
-const dialogList = ["One", "Two", "Three", "Four"];
+const dialogList = [];
 let dialogCount = 0;
 let dialogPoem = "";
 let dialogElement;
@@ -19,37 +19,55 @@ async function main() {
 }
 
 function setUp() {
-    parsePoem();
+    parsePoems();
 }
 
-function parsePoem() {
+function parsePoems() {
     let result;
     fetch("poems.txt").then((response) => {
         return response.blob();
     }).then((blob) => {
         return blob.text();
     }).then((text) => {
-        result = text;
-        let lines = result.split("\n");
-        let i = 0;
-
-        lines = lines.map((line) => {
-            while (line.includes("%")) {
-                passMap.set(line.match(/%([^%]*)%/)[1], false);
-
-                line = line.replace(/%([^%]*)%/, `<span id="key${i}" class="hidden-buttons">$1</span>`);
-                i++;
-            }
-            return line;
-        });
-        console.log(lines.length)
-        poem = lines.join("\n");
-        document.getElementById("poem").innerHTML = poem;
+        let poems = text.split("_");
+        
+        setUpMainPoem(poems[0]);
+        setUpDialogPoem(poems[1]);
+        // set up 2nd page poem???
 
         setUpEventListeners();
         setUpElements();
     });
 
+}
+
+function setUpMainPoem(text) {
+    let lines = text.split("\n");
+    let i = 0;
+    let j = 0;
+
+    lines = lines.map((line, index) => {
+        if (line.includes("<b>")) {
+            line = `<pre id="time${j}">` + line;
+            j++;
+
+            if (index > 0) {
+                line = "</pre>" + line;
+            }
+        }
+        while (line.includes("%")) {
+            passMap.set(line.match(/%([^%]*)%/)[1], false);
+
+            line = line.replace(/%([^%]*)%/, `<span id="key${i}" class="hidden-buttons">$1</span>`);
+            i++;
+        }
+        return line;
+    });
+    poem = lines.join("\n") + "</pre>";
+    document.getElementById("poem").innerHTML = poem;
+} 
+function setUpDialogPoem(text) {
+    dialogList.push(...(text.split("\n").slice(1)));
 }
 
 function setUpEventListeners() {
@@ -62,12 +80,48 @@ function setUpEventListeners() {
             phraseElement.style.backgroundColor = "aqua";
         });
     });
+
+    document.addEventListener('mousemove', (mouse) => {        
+        if (passMap.size - passCount <= 20) {
+            let lastOnes = getRemainingSpans();
+            let x = mouse.clientX;
+            let y = mouse.clientY;
+            let d = 50;
+
+            console.log("---------------------")
+            lastOnes.forEach((span) => {
+                let rect = span.getBoundingClientRect();
+
+                let sY = rect.bottom - ((rect.bottom - rect.top)/2);
+                let sX = rect.right - ((rect.right - rect.left)/2);
+
+                let dY = (sY - y)**2;
+                let dX = (sX - x)**2;
+                console.log(x, y, sX, sY);
+                if ( Math.abs(Math.sqrt(dY + dX)) < d ) {
+                    span.classList.add("last-ones");
+                } else {
+                    span.classList.remove("last-ones");
+                }
+            })
+        }
+    });
 }
 
 
 function setUpElements() {
     inputElement = document.getElementById("fake-input");
     dialogElement = document.getElementById("dialog");
+}
+
+function getRemainingSpans() {
+    let spans = [];
+    Array.from(passMap.entries()).forEach(([, show], index) => {
+        if(!show) {
+            spans.push(document.getElementById(`key${index}`));
+        }
+    });
+    return spans;
 }
 
 function foundPhrase(key) {
@@ -80,7 +134,6 @@ function foundPhrase(key) {
                 inputStr = inputStr + phrase + "\n";
             }
         });
-        console.log(inputStr)
         inputElement.innerHTML = inputStr;
     }
 }
@@ -108,7 +161,6 @@ function submit() {
 }
 
 function showDialog() {
-    console.log("showDialog");
     if (dialogCount < dialogList.length) {
         dialogPoem = dialogPoem + dialogList[dialogCount] + "\n";
         dialogCount++;

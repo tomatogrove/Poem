@@ -1,3 +1,5 @@
+<b>Morning</b>
+
 There's nothing %I can do% about it
 %So many things% pass me by
 
@@ -14,10 +16,10 @@ The air is crisp
 And the landscape's painted brown
 Yet, the version of me %that's full of dreams%
 glitters in the morning light
-prancing over air streams	-------> fjdakfdjklafjdlaj
-dancing eyes, shimmering bright ---->>> ehhhh idk about this
-I can only guess it's singing ---> now this one popped up like wack a mole
+prancing over air streams	--->
+I can only guess it's singing ---> 
 by the way %it% moves it's throat
+It's dancing eyes are shimmering bright --->
 The wisp
 %beams%
 down 
@@ -28,6 +30,8 @@ I can't even hear
 %it's comforting voice% anymore.
 The %lifted% truck behind %me%
 blares into my ears
+
+<b>Afternoon</b>
 
 Sinking into my desk I remember
 when I first found this language
@@ -43,6 +47,8 @@ And when I asked it for help
 it told me
 <i>Exception in thread "main" java.lang.NullPointerException</i>
 
+<b>Evening</b>
+
 At home
 a silhouette follows me room to room
 until I finally search through the
@@ -52,8 +58,8 @@ as I try to put %the puzzle% back in place
 Out of the corner of my eye
 I can see it fidget
 shifting it's weight foot to foot
-It's impatient, I know
-But it's so hard to put
+It's impatient, %I know%
+But %it's so hard% to put
 	all 
 			of
 		these
@@ -71,8 +77,15 @@ The shadow hesitates in the doorway
 reaching in and reaching out
 
 I know!
-I know I have to make everything fit!
+I know I have %to make everything fit%!
 No one else can do it
 I have to get it working
 To get up again tomorrow
 and smear the toothpaste off the mirror
+_
+It's not over (holdover, four leaf clover)
+You're not done
+Don't give up now (cow, eyebrow, allow, chow, somehow)
+Before you've got to the fun!
+Your worries are only a holdover ehhhh 
+You've almost found them all!
