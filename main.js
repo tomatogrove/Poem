@@ -82,23 +82,24 @@ function setUpEventListeners() {
     });
 
     document.addEventListener('mousemove', (mouse) => {        
-        if (passMap.size - passCount <= 20) {
+        if (passMap.size - passCount <= 4) {
             let lastOnes = getRemainingSpans();
             let x = mouse.clientX;
             let y = mouse.clientY;
-            let d = 50;
+            let d = 60;
 
-            console.log("---------------------")
             lastOnes.forEach((span) => {
                 let rect = span.getBoundingClientRect();
-
-                let sY = rect.bottom - ((rect.bottom - rect.top)/2);
-                let sX = rect.right - ((rect.right - rect.left)/2);
-
-                let dY = (sY - y)**2;
-                let dX = (sX - x)**2;
-                console.log(x, y, sX, sY);
-                if ( Math.abs(Math.sqrt(dY + dX)) < d ) {
+                let top = rect.top;
+                let right = rect.right;
+                let bottom = rect.bottom;
+                let left = rect.left;
+                
+                console.log(x, y, top, right, bottom, left);
+                if (
+                    (y >= (top - d) && y <= (bottom + d)) &&
+                    (x >= (left - d) && x <= (right + d))
+                ) {
                     span.classList.add("last-ones");
                 } else {
                     span.classList.remove("last-ones");

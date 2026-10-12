@@ -26,8 +26,12 @@ button {
     width: fit-content;
     display: block;
     align-self: center;
-    font-size: large;
     font-family: sans-serif;
+    padding: .15rem;
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 pre {
@@ -35,6 +39,21 @@ pre {
     overflow: hidden;
 }
 
+
+dialog {
+    border-radius: 15px;
+    border: solid 1px black;
+    padding-top: 0;
+}
+
+.dialog-button {
+    float: right;
+    background-color: rgba(255, 0, 0, 0.767);
+    border-radius: 5px;
+    border: solid 1px black;
+    color: white;
+    padding: .25rem;
+}
 
 .second {
     background-image: url(test.png);
@@ -73,7 +92,7 @@ pre {
 }
 
 .last-ones {
-    background-color: rgba(0, 255, 255, 0.459);
+    background-color: rgba(0, 255, 255, 0.295);
 }
 
 #fake-input {
@@ -87,6 +106,10 @@ pre {
 
 #poem {
     display: flex;
+}
+
+#dialog-header {
+    margin-top: 0;
 }
 
 
