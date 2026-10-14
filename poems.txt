@@ -3,31 +3,39 @@
 There's nothing %I can do% about it
 %So many things% pass me by
 
-%I%t's %Fall again,%
+%I%t's %<Fall again.%
 
+Lately
 time is smeared
 like the toothpaste I %wipe off the% mirror
 And each day
-a %part of me% swirls down the drain
+a %<part of me% swirls into the drain
 
-Bundled under a ratty coat 
+Bundled under a ratty coat
 The air is crisp
+but slightly stinging
 And the landscape's painted brown
+
 Yet, the version of me %that's full of dreams%
-glitters in the morning light
-prancing over air streams	--->
-I can only guess it's singing ---> 
-by the way %it% moves it's throat
-It's dancing eyes are shimmering bright --->
+glitters in the morning light,
+prancing over air streams
+%It%'s dancing eyes are shimmering bright 
+I can only guess it's singing 
+by the way it moves it's throat
+
 The wisp
-%beams%
+
+%<beams%
+
 down 
-%at me%
+
+%<at me%
+
 in incomprehensible glee
 
-I can't even hear 
-%it's comforting voice% anymore.
-The %lifted% truck behind %me%
+
+I miss %it's comforting voice%.
+The %lifted% truck behind %<me%
 blares into my ears
 
 <b>Afternoon</b>
@@ -39,48 +47,52 @@ How it %held my hand and%
 %together we% wrote <i>Hello World!</i>
 
 I let it lead me around 
-giddy as we %solved% all of my temporary worries
-not noticing when it let go of my hand
-I was surrounded by iron walls
+giddy as we %<solved% all of my temporary worries
+not noticing when it let go
+I was surrounded by all those things I left behind
 And when I asked it for help
-it told me
-<i>Exception in thread "main" java.lang.NullPointerException</i>
+all it could say was
+<i>java.lang.NullPointerException</i>
 
 <b>Evening</b>
 
-At home
-a silhouette follows me room to room
-until I finally search through the
-big box of parts it pushes into my hands.
-It stands watching
-as I try to put %the puzzle% back in place
-Out of the corner of my eye
-I can see it fidget
-shifting it's weight foot to foot
-It's impatient, %I know%
-But %it's so hard% to put
-	all 
-			of
-		these
-					things
-together
+At home I fall apart
 
-broken pieces are taped
-and glued
-and knotted into disarray
-Nothing's new and the 			
-				orange piece runs from the
-green
+Room to room
+    pieces slough off
+        trailing behind
+            like little
+                ducklings
 
-The shadow hesitates in the doorway
-reaching in and reaching out
+I trip over my intenstines
+and all my bones tumble
 
-I know!
-I know I have %to make everything fit%!
-No one else can do it
-I have to get it working
-To get up again tomorrow
-and smear the toothpaste off the mirror
+Lying on the floor
+My eyes roll and my ribs sigh
+Blindly, I reach out and manage to find one
+it pops right back into place
+
+Another day but %the puzzle% is the same
+
+It's always so hard to put
+	these            parts
+
+around 		me		back
+
+		together
+
+%I'm never% going to be able to put it all back
+I know I'm %all alone in this%
+
+Just when I've given up
+there it is
+
+A silhouette in the doorway
+Someone who I thought had left me
+
+In one smooth motion
+the shadow reaches in
+and wipes me off
 _
 It's not over (holdover, four leaf clover)
 You're not done

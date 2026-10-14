@@ -1,6 +1,9 @@
 onload = () => main();
 
 
+const REGEX = /%<?([^%]*)%/;
+
+// key is a phrase, values are isFound and followsPrevious
 let passMap = new Map();
 let passCount = 0;
 
@@ -46,19 +49,26 @@ function setUpMainPoem(text) {
     let i = 0;
     let j = 0;
 
+    // for each line
     lines = lines.map((line, index) => {
+        // if a line include a subtitle, make sure to create a new subsection
         if (line.includes("<b>")) {
             line = `<pre id="time${j}">` + line;
             j++;
 
+            // after the first subsection, make sure to close the previous one
             if (index > 0) {
                 line = "</pre>" + line;
             }
         }
+        // while the line includes a key phrase
         while (line.includes("%")) {
-            passMap.set(line.match(/%([^%]*)%/)[1], false);
 
-            line = line.replace(/%([^%]*)%/, `<span id="key${i}" class="hidden-buttons">$1</span>`);
+            let match = line.match(REGEX);
+            let follows = match[0].includes("<");
+            passMap.set(match[1], {isFound: false, followsPrevious: follows});
+
+            line = line.replace(REGEX, `<span id="key${i}" class="hidden-buttons">$1</span>`);
             i++;
         }
         return line;
@@ -117,8 +127,8 @@ function setUpElements() {
 
 function getRemainingSpans() {
     let spans = [];
-    Array.from(passMap.entries()).forEach(([, show], index) => {
-        if(!show) {
+    Array.from(passMap.entries()).forEach(([, values], index) => {
+        if(!values.isFound) {
             spans.push(document.getElementById(`key${index}`));
         }
     });
@@ -126,13 +136,20 @@ function getRemainingSpans() {
 }
 
 function foundPhrase(key) {
-    if (!passMap.get(key)) {
-        passMap.set(key, true);
+    let passInfo = passMap.get(key);
+    if (!passInfo.isFound) {
+        passInfo.isFound = true;
+        passMap.set(key, passInfo);
         passCount++;
         let inputStr = "";
-        Array.from(passMap.entries()).forEach(([phrase, show]) => {
-            if (show) {
-                inputStr = inputStr + phrase + "\n";
+        Array.from(passMap.entries()).forEach(([phrase, info]) => {
+            if (info.isFound) {
+                if (info.followsPrevious) {
+                    inputStr = inputStr + " " + phrase;
+                } else {
+
+                    inputStr =  inputStr + "\n" + phrase;
+                }
             }
         });
         inputElement.innerHTML = inputStr;
