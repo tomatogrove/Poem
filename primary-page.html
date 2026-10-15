@@ -11,16 +11,14 @@
                 <h3>Ruminations</h3>
                 <div id="poem"></div>
             </div>
-            <div class="column">
-                <div>
-                    <pre id="fake-input"></pre>
-                </div>
+            <div id="pass-box" class="column">
+                <pre id="fake-input"></pre>
                 <button class="column" onclick="attemptSubmit()">Go</button>
             </div>
         </div>
         <dialog id="dialog">
             <div id="dialog-header">
-                <button class="dialog-button"onclick="closeDialog()">X</button>
+                <button class="dialog-button"onclick="closeDialog()"><img class="icon" src="./assets/remove.png"/></button>
                 <h3>Keep Going</h3>
             </div>
             <pre id="dialog-poem"></pre>

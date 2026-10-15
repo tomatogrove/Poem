@@ -27,7 +27,7 @@ function setUp() {
 
 function parsePoems() {
     let result;
-    fetch("poems.txt").then((response) => {
+    fetch("./assets/poems.txt").then((response) => {
         return response.blob();
     }).then((blob) => {
         return blob.text();
@@ -152,6 +152,8 @@ function foundPhrase(key) {
                 }
             }
         });
+        // remove first \n
+        inputStr = inputStr.replace("\n", "");
         inputElement.innerHTML = inputStr;
     }
 }
