@@ -81,6 +81,8 @@ function setUpDialogPoem(text) {
 }
 
 function setUpEventListeners() {
+    // set up event listener for each passphrase
+    // on click change background color of each phrase
     Array.from(passMap.keys()).forEach((key, index) => {
         let phraseElement = document.getElementById(`key${index}`);
         phraseElement.innerHTML = key;
@@ -91,13 +93,19 @@ function setUpEventListeners() {
         });
     });
 
+    // watch mouse movements
     document.addEventListener('mousemove', (mouse) => {        
         if (passMap.size - passCount <= 4) {
+            // getting mouse coordinates and remaining passphrases
             let lastOnes = getRemainingSpans();
             let x = mouse.clientX;
             let y = mouse.clientY;
-            let d = 60;
+            // distance in px
+            let distance = 60;
 
+            // for each remaining passphrase
+            // if the mouse is within a specific proximity
+            // highlight the phrase slightly to draw attention to it
             lastOnes.forEach((span) => {
                 let rect = span.getBoundingClientRect();
                 let top = rect.top;
@@ -105,10 +113,9 @@ function setUpEventListeners() {
                 let bottom = rect.bottom;
                 let left = rect.left;
                 
-                console.log(x, y, top, right, bottom, left);
                 if (
-                    (y >= (top - d) && y <= (bottom + d)) &&
-                    (x >= (left - d) && x <= (right + d))
+                    (y >= (top - distance) && y <= (bottom + distance)) &&
+                    (x >= (left - distance) && x <= (right + distance))
                 ) {
                     span.classList.add("last-ones");
                 } else {

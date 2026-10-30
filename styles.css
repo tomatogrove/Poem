@@ -58,7 +58,7 @@ dialog {
 }
 
 .second {
-    background-image: url(./assets/test.png);
+    background-image: url(./assets/10.07.26.png); 
     background-repeat: no-repeat;
     background-position: center;
     background-size: var(--w_raw) 100%;
@@ -80,14 +80,6 @@ dialog {
 }
 
 
-/* .hidden-buttons {
-    padding: 0;
-    border: none;
-    background: none;
-    font-family: sans-serif;
-    font-size: large;
-} */
-
 .hidden-buttons:hover {
     background-color: aqua;
     cursor: pointer;
@@ -100,6 +92,79 @@ dialog {
 .icon {
     width: 23px;
 }
+
+
+@font-face {
+    font-family: Astigma;
+    src: url(assets/ASS.TTF);
+}
+
+.test {
+    font-family: Astigma;
+    font-size: 140px;
+    color: #eb754a;
+    text-shadow: 10px 0 #0a2f2f,
+}
+
+
+.overlay {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: var(--w_raw) 100%;
+    aspect-ratio: 3300/5100;
+    overflow-y: none;
+}
+
+.overlay-1 {
+    background-image: url(./assets/deconstruction_IV/overlay_v1.png); 
+    animation: fadeIn 1s ease-in;
+}
+
+.overlay-2 {
+    background-image: url(./assets/deconstruction_IV/overlay_2.png); 
+    animation: fadeIn 2s ease-in;
+    animation-delay: 1s;
+}
+
+.overlay-3 {
+    background-image: url(./assets/deconstruction_IV/overlay_3.png); 
+    animation: fadeIn 3s ease-in;
+    animation-delay: 2s;
+}
+
+.overlay-4 {
+    background-image: url(./assets/deconstruction_IV/overlay_4.png); 
+    animation: fadeIn 4s ease-in;
+    animation-delay: 3s;
+}
+
+.overlay-5 {
+    background-image: url(./assets/deconstruction_IV/overlay_5.png); 
+    animation: fadeIn 5s ease-in;
+    animation-delay: 4s;
+}
+
+.overlay-6 {
+    background-image: url(./assets/deconstruction_IV/overlay_6.png); 
+    animation: fadeIn 6s ease-in;
+    animation-delay: 5s;
+}
+
+.overlay-7 {
+    background-image: url(./assets/deconstruction_IV/overlay_7.png); 
+    animation: fadeIn 7s ease-in;
+    animation-delay: 6s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fadeIn {
+    animation: fadeIn 2.5s ease-in 
+}
+
 
 #fake-input {
     border: 1px solid black;
@@ -126,6 +191,7 @@ dialog {
 ::-webkit-scrollbar-track {
     background-color: inherit;
 }
+
 
 
 
