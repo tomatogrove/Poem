@@ -174,8 +174,7 @@ function attemptSubmit() {
 }
 
 function submit() {
-    let url = window.location.href;
-    url = url.replace("index", "reconstruction");
+    console.log("attempt routing")
     window.location.href = "reconstruction.html";
 }
 
