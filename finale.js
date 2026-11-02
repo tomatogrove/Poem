@@ -29,74 +29,119 @@ const animationClassMap = new Map([
 ]);
 
 
-function main() {
-    setUp();
-}
-
-async function setUp() {
-
+async function main() {
     checkAddToOverlays();
 
     watchScrollBar();
 }
 
-async function loadImages() {
-    let promises = [];
-    let images = [];
-    for (let i = 0; i < 7; i++) {
-        promises.push(new Promise((resolve) => {
-            let img = new Image();
-            img.onload = () => resolve();
-            img.src = `assets/deconstruction_IV/overlay_v${i+1}.png`;
-            images.push(img);
-        }));
-    }
-    await Promise.all(promises);
-    return images;
-}
-
-
-function watchScrollBar() {
+async function watchScrollBar() {
     addEventListener("scroll", (event) => {
-        checkAddToOverlays();
+        // until all 7 stanzas are shown
+        if (overlays.size < 7) {
+            checkAddToOverlays();
+        }
     });
 }
 
-function checkAddToOverlays() {
-        const totalPageHeight = document.documentElement.scrollHeight;
-        const bottomViewport = window.scrollY + document.documentElement.clientHeight;
-
-        // until all 7 stanzas are shown
-        if (overlays.size < 7) {
-            let numAdded = 0;
-            for (let i = numShown; i <= thresholds.length; i++) {
-                // if the viewport encompasses the location of a stanza
-                // make sure to queue it for showing
-                if (thresholds[i] <= (bottomViewport / totalPageHeight)) {
-                    numAdded++;
-                }
-            }
-            createOverlays(numAdded);
+async function checkAddToOverlays() {
+    const totalPageHeight = document.documentElement.scrollHeight;
+    const bottomViewport = window.scrollY + document.documentElement.clientHeight;
+    let numAdded = 0;
+    for (let i = numShown; i <= thresholds.length; i++) {
+        // if the viewport encompasses the location of a stanza
+        // make sure to queue it for showing
+        if (thresholds[i] <= (bottomViewport / totalPageHeight)) {
+            numAdded++;
         }
+    }
+    createOverlays(numAdded);
 }
 
-// TODO: create queue to stagger fade ins
-function createOverlays(numAdded) {
+async function createOverlays(numAdded) {
+    let addedToQueue = false;
     const container = document.getElementById("container");
     for (let i = 0; i < numAdded; i++) {
         const overlayNum = numShown + 1;
         const animationClass = animationClassMap.get(overlayNum);
         let newElement = new Image();
         newElement.id = "overlay" + overlayNum;
-        newElement.classList.add("position", animationClass);
+        newElement.classList.add
+        
+        
+        ("position", animationClass);
         newElement.src = `assets/deconstruction_IV/overlay_v${overlayNum}.png`;
         // scrolling fast may trigger duplicate element creation
         // probably still issues with trying to mitigate it with this check....
         if (!overlays.has(newElement)) {
-            container.appendChild(newElement); // move to dequeue method
             overlays.add(newElement);
-            queue.push(newElement);
+            queue.unshift(newElement);
+            addedToQueue = true;
             numShown++;
         }
     }
+    if (addedToQueue) {
+        await displayOverlays(container);
+    }
 }
+
+async function displayOverlays(container) {
+    // prevent premature displaying of the overlays
+    while (queue.length > 0 && !window.activeTimers()) {
+        console.log(queue);
+        let element = queue.pop();
+        container.appendChild(element);
+        let timeout = getWaitTime(element);
+        await wait(timeout);
+    }
+}
+
+function wait(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms)); 
+}
+
+
+function getWaitTime(element) {
+    let order = element.id.charAt(element.id.length - 1);
+    if (order == 1 || order > 5) {
+        return 1000;
+    } else if (order < 5 ) {
+        return 2500;
+    } else  {
+        return 1500;
+    }
+}
+
+
+
+// Source - https://stackoverflow.com/a/34294862
+// Posted by adeneo, modified by community. See post 'Timeline' for change history
+// Retrieved 2026-11-02, License - CC BY-SA 3.0
+
+(function(w) {
+     var active = {};
+
+     var _setTimeout = w.setTimeout;
+     var _clearTimeout = w.clearTimeout;
+
+     w.setTimeout = function(fn, delay) {
+        console.log("overridden set timeout");
+         var id = _setTimeout(function() {
+             fn();
+             delete active[id];
+         }, delay);
+         active[id] = true;
+         console.log(active);
+         return id;
+     }
+
+     w.clearTimeout = function(id) {
+         delete active[id];
+         _clearTimeout(id);
+     }
+
+     w.activeTimers = function() {
+        console.log(Object.keys(active).length > 0);
+         return Object.keys(active).length > 0;
+     }
+})(window);
