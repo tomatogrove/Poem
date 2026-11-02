@@ -174,7 +174,7 @@ function attemptSubmit() {
 }
 
 function submit() {
-    window.location.href += "/reconstruction.html";
+    window.location.href += "reconstruction.html";
 }
 
 function showDialog() {
