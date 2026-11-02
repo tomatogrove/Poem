@@ -175,7 +175,7 @@ function attemptSubmit() {
 
 function submit() {
     console.log("attempt routing")
-    window.location.href = "reconstruction.html";
+    window.location.href += "/reconstruction.html";
 }
 
 function showDialog() {
