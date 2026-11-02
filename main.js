@@ -168,7 +168,7 @@ function foundPhrase(key) {
 function resetNavigation() {
     let url = window.location.href;
     if (url.includes("reconstruction")) {
-        url = url.replace("deconstruction", "reconstruction");
+        url = url.replace("index", "reconstruction");
         window.location.href = url;
     }
 }
@@ -183,7 +183,7 @@ function attemptSubmit() {
 
 function submit() {
     let url = window.location.href;
-    url = url.replace("deconstruction", "reconstruction");
+    url = url.replace("index", "reconstruction");
     window.location.href = url;
 }
 
