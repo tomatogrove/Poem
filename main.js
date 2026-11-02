@@ -165,14 +165,6 @@ function foundPhrase(key) {
     }
 }
 
-function resetNavigation() {
-    let url = window.location.href;
-    if (url.includes("reconstruction")) {
-        url = url.replace("index", "reconstruction");
-        window.location.href = url;
-    }
-}
-
 function attemptSubmit() {
     if (passCount === passMap.size) {
         submit();
@@ -184,7 +176,7 @@ function attemptSubmit() {
 function submit() {
     let url = window.location.href;
     url = url.replace("index", "reconstruction");
-    window.location.href = url;
+    window.location.href = "reconstruction.html";
 }
 
 function showDialog() {
