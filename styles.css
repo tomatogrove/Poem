@@ -156,13 +156,31 @@ dialog {
     animation-delay: 6s;
 }
 
+.position {
+    position: absolute;
+    aspect-ratio: 3300/5100;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.animation {
+    animation: fadeIn 2.5s ease-in;
+}
+
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
-.fadeIn {
-    animation: fadeIn 2.5s ease-in 
+.fade-in-slow {
+    animation: fadeIn 2.5s ease-in;
+}
+.fade-in-fast {
+    animation: fadeIn 1s ease-in;
+}
+.fade-in-med {
+    animation: fadeIn 1.75s ease-in;
 }
 
 
@@ -186,6 +204,10 @@ dialog {
 #pass-box {
     padding-left: 3rem;
     padding-right: 3rem;
+}
+
+#container {
+    margin-top: 0;
 }
 
 ::-webkit-scrollbar-track {
