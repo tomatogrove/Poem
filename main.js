@@ -17,7 +17,7 @@ let poem = "";
 
 
 async function main() {
-    // resetNavigation(); ---> How to redirect without auth
+    // resetNavigation(); ---> How to redirect without auth // don't worry about it
     setUp();
 }
 
@@ -167,8 +167,8 @@ function foundPhrase(key) {
 
 function resetNavigation() {
     let url = window.location.href;
-    if (url.includes("secondary")) {
-        url = url.replace("secondary", "primary");
+    if (url.includes("reconstruction")) {
+        url = url.replace("deconstruction", "reconstruction");
         window.location.href = url;
     }
 }
@@ -183,7 +183,7 @@ function attemptSubmit() {
 
 function submit() {
     let url = window.location.href;
-    url = url.replace("primary", "secondary");
+    url = url.replace("deconstruction", "reconstruction");
     window.location.href = url;
 }
 

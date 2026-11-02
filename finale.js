@@ -88,7 +88,6 @@ async function createOverlays(numAdded) {
 async function displayOverlays(container) {
     // prevent premature displaying of the overlays
     while (queue.length > 0 && !window.activeTimers()) {
-        console.log(queue);
         let element = queue.pop();
         container.appendChild(element);
         let timeout = getWaitTime(element);
@@ -125,13 +124,11 @@ function getWaitTime(element) {
      var _clearTimeout = w.clearTimeout;
 
      w.setTimeout = function(fn, delay) {
-        console.log("overridden set timeout");
          var id = _setTimeout(function() {
              fn();
              delete active[id];
          }, delay);
          active[id] = true;
-         console.log(active);
          return id;
      }
 
@@ -141,7 +138,6 @@ function getWaitTime(element) {
      }
 
      w.activeTimers = function() {
-        console.log(Object.keys(active).length > 0);
          return Object.keys(active).length > 0;
      }
 })(window);
